@@ -1,5 +1,4 @@
 
-
 # Автор: Пекшин 9 группа
 
 # Цвет: любой который можно задать одной буквой (но для каждого свой).
@@ -35,7 +34,7 @@ first = plt.subplot2grid((2, 2), (0, 0))
 first.plot(x1, y1, linewidth=2, linestyle='-', color='b')
 
 
-first.set_xticks(range(-10,10,1))
+first.set_xticks(range(-6,6,1))
 first.set_yticks(range(-6,6,1))
 
 first.axis('equal')
@@ -50,6 +49,9 @@ y2 = (math.e**(t2**0.5)*np.sin(t2))
 second = plt.subplot2grid((2, 2), (0, 1))
 second.plot(x2, y2, linewidth=3, linestyle='--', color='r')
 
+second.set_xticks(range(-100, 50, 2))
+second.set_xticks(range(-200, 100, 5))
+
 
 second.grid(True)
 
@@ -57,19 +59,23 @@ second.grid(True)
 min_value = 0
 max_value = 100
 
-x3 = np.linspace(0, 100, 100)
+x3 = np.linspace(-1, 10, 100)
 
-y3plus = (x3**3 + x3**2)**0.5
+y3plus = np.pow(x3**3 + x3**2, 0.5)
 y3minus = -(x3**3+ x3**2)**0.5
 
 third = plt.subplot2grid((2, 2), (1, 0))
 
-third.plot(y3plus, x3, linewidth=2, linestyle='--', color='g')
-third.plot(y3minus, x3, linewidth=2, linestyle='--', color='g')
+third.plot(x3, y3plus, linewidth=2, linestyle='--', color='g')
+third.plot(x3, y3minus, linewidth=2, linestyle='--', color='g')
 
 third.grid(True)
 
-third.set_yticks(range(0, 100, 5))
+third.set_yticks(range(-10, 10, 2))
+third.set_xticks(range(0, 10, 5))
+third.set_xlim(-4,4)
+third.set_ylim(-4,4)
+# third.axis('equal')
 
 ####################################################################
 
@@ -81,6 +87,7 @@ fourth = plt.subplot2grid((2, 4), (1, 3))
 fourth.plot(y4, x4, linewidth=3, linestyle='--', color='y')
 
 fourth.set_yticks(range(-100, 100, 10))
+fourth.set_xticks(range(-10, 10, 1))
 
 
 fourth.grid(True)
